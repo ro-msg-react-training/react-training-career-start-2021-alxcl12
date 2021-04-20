@@ -1,27 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ProductList from './components/ProductList'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Test test test
-        </p>
-        <h1> Time is {new Date().toLocaleTimeString()}</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <ProductList/>
 }
 
 export default App;
