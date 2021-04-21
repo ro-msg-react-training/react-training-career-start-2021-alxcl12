@@ -1,12 +1,19 @@
+import {ThemeProvider} from '@material-ui/styles';
+import MyTheme from '../theme/MyTheme';
+import { productItemStyle } from '../styles/ProductItemStyle'
+
 
 function ProductItem(props : any){
-    
+    const style = productItemStyle();
+
     return (
-        <tr>
-            <td> {props.category} </td>
-            <td> {props.name} </td>
-            <td> {props.price.toString()} </td>
-        </tr>
+        <ThemeProvider theme = {MyTheme}>
+            <tr>
+                <td className={style.tdStyle}> {props.category} </td>
+                <td className={style.tdStyle}> {props.name} </td>
+                <td className={style.tdStyle}> {props.price.toString()} </td>
+            </tr>
+        </ThemeProvider>
     );
 };
 

@@ -1,5 +1,7 @@
 import ProductItem from './ProductItem';
-import '../styles/ProductList.css';
+import {ThemeProvider} from '@material-ui/styles';
+import { productListStyle } from '../styles/ProductListStyle'
+import MyTheme from '../theme/MyTheme';
 
 var data = [
     {
@@ -44,17 +46,21 @@ function ProductList(props: any){
     price={product.price}/>
     );
 
+    const style = productListStyle();
+
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th> Category </th>
-                    <th> Name </th>
-                    <th> Price </th>
-                </tr>
-            </thead>
-            <tbody> {items} </tbody>
-        </table>
+        <ThemeProvider theme = {MyTheme}>
+            <table className = {style.tableStyle}>
+                <thead className = {style.tableStyle}>
+                    <tr className = {style.tableStyle}>
+                        <th className = {style.tableStyle}> Category </th>
+                        <th className = {style.tableStyle}> Name </th>
+                        <th className = {style.tableStyle}> Price </th>
+                    </tr>
+                </thead>
+                <tbody> {items} </tbody>
+            </table>
+        </ThemeProvider>
     )
 }
 
