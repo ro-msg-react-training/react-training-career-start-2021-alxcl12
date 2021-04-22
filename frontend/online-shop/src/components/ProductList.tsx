@@ -1,8 +1,5 @@
 import ProductItem from "./ProductItem";
-import { ThemeProvider } from "@material-ui/styles";
 import { productListStyle } from "../styles/ProductListStyle";
-import MyTheme from "../theme/MyTheme";
-import { CssBaseline } from "@material-ui/core";
 
 var data = [
   {

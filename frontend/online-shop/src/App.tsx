@@ -1,17 +1,31 @@
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import "./App.css";
+import { ProductDetail } from "./components/ProductDetail";
 import ProductList from "./components/ProductList";
 import MyTheme from "./theme/MyTheme";
 
-function App() {
+export const App = () => {
   return (
     <ThemeProvider theme={MyTheme}>
       <CssBaseline>
-        <ProductList />
+        <Router>
+          <Switch>
+            <Route path="/product/:number" component={ProductDetail}></Route>
+            <Route path="/products" component={ProductList}></Route>
+            <Route exact path="/">
+              {" "}
+              <Redirect to="/products"></Redirect>
+            </Route>
+          </Switch>
+        </Router>
       </CssBaseline>
     </ThemeProvider>
   );
-}
-
-export default App;
+};
