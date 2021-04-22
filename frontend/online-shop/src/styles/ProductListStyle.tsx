@@ -1,13 +1,30 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, createStyles, Theme } from "@material-ui/core";
 
-export const productListStyle = makeStyles( theme  =>({
+export const productListStyle = makeStyles((theme: Theme) =>
+  createStyles({
     tableStyle: {
-        width: '750px',
-        border: '1px solid',
-        borderCollapse: 'collapse',
-        margin: '50px auto',
-        backgroundColor: theme.palette.primary.main,
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.typography.fontSize
-    }
-}));
+      width: "750px",
+      border: "2px solid",
+      borderCollapse: "collapse",
+      marginLeft: "40px",
+    },
+
+    headingStyle: {
+      marginTop: "50px",
+      marginLeft: "40px",
+      fontFamily: theme.typography.fontFamily,
+    },
+
+    tableHeaderStyle: {
+      border: "1px solid",
+      borderCollapse: "collapse",
+      color: theme.palette.primary.main,
+      fontFamily: theme.typography.fontFamily,
+      fontSize: theme.typography.fontSize,
+    },
+
+    buttonColumnStyle: {
+      width: "5px",
+    },
+  })
+);

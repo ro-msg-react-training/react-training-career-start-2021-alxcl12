@@ -11,8 +11,8 @@ const MyTheme = createMuiTheme({
     },
 
     typography:{
-        fontFamily: '"OpenSans" bold',
-        fontSize: 20
+        fontFamily: 'OpenSans',
+        fontSize: 18
     }
 });
 
