@@ -4,16 +4,6 @@ import MyTheme from "../theme/MyTheme";
 import { productItemStyle } from "../styles/ProductItemStyle";
 import { Link } from "react-router-dom";
 
-export interface Product {
-  id: bigint;
-  name: string;
-  price: number;
-  weight: number;
-  category: string;
-  supplier: string;
-  imgUrl: string;
-}
-
 function ProductItem(props: any) {
   const style = productItemStyle();
 
