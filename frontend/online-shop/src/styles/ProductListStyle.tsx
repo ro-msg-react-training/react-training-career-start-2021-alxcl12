@@ -8,13 +8,11 @@ export const productListStyle = makeStyles((theme: Theme) =>
       borderCollapse: "collapse",
       marginLeft: "40px",
     },
-
     headingStyle: {
       marginTop: "50px",
       marginLeft: "40px",
       fontFamily: theme.typography.fontFamily,
     },
-
     tableHeaderStyle: {
       border: "1px solid",
       borderCollapse: "collapse",
@@ -22,7 +20,6 @@ export const productListStyle = makeStyles((theme: Theme) =>
       fontFamily: theme.typography.fontFamily,
       fontSize: theme.typography.fontSize,
     },
-
     buttonColumnStyle: {
       width: "5px",
     },

@@ -11,7 +11,7 @@ export const productDetailStyle = makeStyles((theme: Theme) =>
     buttonStyle: {
       float: "right",
       marginTop: "50px",
-      marginRight: "500px",
+      marginRight: "300px",
     },
   })
 );

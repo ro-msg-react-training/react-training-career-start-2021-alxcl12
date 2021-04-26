@@ -17,12 +17,16 @@ export const App = () => {
       <CssBaseline>
         <Router>
           <Switch>
-            <Route path="/product/:number" component={ProductDetail}></Route>
+            <Route path="/product/:id" component={ProductDetail}></Route>
             <Route path="/products" component={ProductList}></Route>
             <Route exact path="/">
               {" "}
               <Redirect to="/products"></Redirect>
             </Route>
+            <Route
+              path="*"
+              render={() => <div>Error 404: Page not found</div>}
+            />
           </Switch>
         </Router>
       </CssBaseline>
