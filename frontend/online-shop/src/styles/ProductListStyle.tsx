@@ -12,6 +12,7 @@ export const productListStyle = makeStyles((theme: Theme) =>
       marginTop: "50px",
       marginLeft: "40px",
       fontFamily: theme.typography.fontFamily,
+      display: "inline-block",
     },
     tableHeaderStyle: {
       border: "1px solid",
@@ -22,6 +23,12 @@ export const productListStyle = makeStyles((theme: Theme) =>
     },
     buttonColumnStyle: {
       width: "5px",
+    },
+    buttonStyle: {
+      marginLeft: "50px",
+      float: "right",
+      marginRight: "400px",
+      marginTop: "50px",
     },
   })
 );

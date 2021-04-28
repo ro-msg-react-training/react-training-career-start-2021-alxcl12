@@ -1,66 +1,46 @@
 import ProductItem from "./ProductItem";
 import { productListStyle } from "../styles/ProductListStyle";
-import ProductService from "../service/ProductService";
-import React from "react";
+import { Button } from "@material-ui/core";
+import { connect, useDispatch } from "react-redux";
+import { getProductsOk, getProductsReq } from "../actions/ProductActions";
+import { ProductsState } from "../reducers/ProductsReducer";
+// import { Dispatch } from "redux";
+// import { Product } from "../interfaces/ProductInterface";
+import { useEffect } from "react";
+import { store } from "../store/Store";
+import { Link } from "react-router-dom";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import MyTheme from "../theme/MyTheme";
+import AddIcon from "@material-ui/icons/Add";
 
-// const data = [
-//   {
-//     id: 0,
-//     name: "p1",
-//     category: "c1",
-//     price: 2,
-//   },
-//   {
-//     id: 1,
-//     name: "p2",
-//     category: "c1",
-//     price: 4,
-//   },
-//   {
-//     id: 2,
-//     name: "p3",
-//     category: "c2",
-//     price: 8,
-//   },
-//   {
-//     id: 3,
-//     name: "p4",
-//     category: "c2",
-//     price: 16,
-//   },
-//   {
-//     id: 4,
-//     name: "p5",
-//     category: "c4",
-//     price: 32,
-//   },
-// ];
+const mapStateToProps = (state: ProductsState) => {
+  return { products: state.products };
+};
 
-function ProductList(props: any) {
-  var productService = new ProductService();
+// const mapDispatchToProps = (dispatch: Dispatch) => ({
+//   getAllProd: () => dispatch(getProductsReq()),
+//   getAllProdOk: (products: Product[]) => dispatch(getProductsOk(products)),
+// });
 
-  const [data, setData] = React.useState<any[]>([]);
+export const ProductList = (props: ProductsState) => {
+  const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    getProducts();
+  useEffect(() => {
+    dispatch(getProductsReq());
   }, []);
 
-  function getProducts() {
-    productService.getAllProducts().then((response) => {
-      setData(response);
-    });
-  }
-
-  const items = data.map((product) => (
-    <ProductItem
-      key={product.id.toString()}
-      id={product.id}
-      category={product.category}
-      name={product.name}
-      price={product.price}
-      description={product.description}
-    />
-  ));
+  const items = store
+    .getState()
+    .products.products.map((product) => (
+      <ProductItem
+        key={product.id.toString()}
+        id={product.id}
+        category={product.category}
+        name={product.name}
+        price={product.price}
+        description={product.description}
+      />
+    ));
 
   const style = productListStyle();
 
@@ -68,6 +48,14 @@ function ProductList(props: any) {
     <>
       <h1 className={style.headingStyle}> Products </h1>
 
+      <Button className={style.buttonStyle}>
+        <AddIcon style={{ color: MyTheme.palette.primary.main }} />
+      </Button>
+      <Link to={"/cart"}>
+        <Button className={style.buttonStyle}>
+          <ShoppingCartIcon style={{ color: MyTheme.palette.primary.main }} />
+        </Button>
+      </Link>
       <table className={style.tableStyle}>
         <thead className={style.tableHeaderStyle}>
           <tr className={style.tableHeaderStyle}>
@@ -81,6 +69,9 @@ function ProductList(props: any) {
       </table>
     </>
   );
-}
+};
 
-export default ProductList;
+export default connect(mapStateToProps, {
+  getProductsReq,
+  getProductsOk,
+})(ProductList);

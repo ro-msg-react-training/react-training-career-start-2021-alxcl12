@@ -1,34 +1,24 @@
 import axios from "axios";
 
-class ProductService {
-  props: any;
+export const getAllProducts = async () => {
+  const result = await axios
+    .get("http://localhost:4000/products")
+    .then((result) => {
+      return result.data;
+    });
+  return result;
+};
 
-  getAllProducts() {
-    return axios
-      .get("http://localhost:4000/products")
-      .then(this.handleResponse)
-      .catch(this.handleError);
-  }
+export const getProductById = async (id: any) => {
+  const result = await axios
+    .get("http://localhost:4000/products/" + id)
+    .then((result) => {
+      return result.data;
+    });
+  return result;
+};
 
-  getProductById(props: any) {
-    return axios
-      .get("http://localhost:4000/products/" + props)
-      .then(this.handleResponse)
-      .catch(this.handleError);
-  }
-
-  deleteProductById(props: any) {
-    return axios.delete("http://localhost:4000/products/" + props);
-  }
-
-  handleResponse(response: any) {
-    if (response.data) {
-      console.log(response.data);
-      return response.data;
-    }
-  }
-
-  handleError(error: any) {}
-}
-
-export default ProductService;
+export const deleteProductById = async (id: any) => {
+  const result = await axios.delete("http://localhost:4000/products/" + id);
+  return result;
+};

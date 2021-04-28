@@ -13,5 +13,8 @@ export const productDetailStyle = makeStyles((theme: Theme) =>
       marginTop: "50px",
       marginRight: "300px",
     },
+    tableStyle: {
+      marginLeft: "40px",
+    },
   })
 );
