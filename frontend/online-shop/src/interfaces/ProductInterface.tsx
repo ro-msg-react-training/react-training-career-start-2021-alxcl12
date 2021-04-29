@@ -9,5 +9,5 @@ export interface Product {
   weight: number;
   category: Category;
   supplier: Supplier;
-  imgUrl: string;
+  image: string;
 }

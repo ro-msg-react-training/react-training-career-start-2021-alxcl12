@@ -7,10 +7,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import { ProductDetail } from "./components/ProductDetail";
+import { ProductUpdate } from "./components/ProductUpdate";
 import ProductList from "./components/ProductList";
 import MyTheme from "./theme/MyTheme";
 import { store } from "./store/Store";
 import { Provider } from "react-redux";
+import { CartProducts } from "./components/Cart";
+import { ProductAdd } from "./components/ProductAdd";
 
 export const App = () => {
   return (
@@ -21,6 +24,9 @@ export const App = () => {
             <Switch>
               <Route path="/product/:id" component={ProductDetail}></Route>
               <Route path="/products" component={ProductList}></Route>
+              <Route path="/update/:id" component={ProductUpdate}></Route>
+              <Route exact path="/cart" component={CartProducts} />
+              <Route exact path="/add" component={ProductAdd} />
               <Route exact path="/">
                 {" "}
                 <Redirect to="/products"></Redirect>

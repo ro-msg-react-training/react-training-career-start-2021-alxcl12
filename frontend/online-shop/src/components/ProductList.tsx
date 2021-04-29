@@ -3,9 +3,8 @@ import { productListStyle } from "../styles/ProductListStyle";
 import { Button } from "@material-ui/core";
 import { connect, useDispatch } from "react-redux";
 import { getProductsOk, getProductsReq } from "../actions/ProductActions";
+import { AppState } from "../store/Store";
 import { ProductsState } from "../reducers/ProductsReducer";
-// import { Dispatch } from "redux";
-// import { Product } from "../interfaces/ProductInterface";
 import { useEffect } from "react";
 import { store } from "../store/Store";
 import { Link } from "react-router-dom";
@@ -13,14 +12,10 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import MyTheme from "../theme/MyTheme";
 import AddIcon from "@material-ui/icons/Add";
 
-const mapStateToProps = (state: ProductsState) => {
-  return { products: state.products };
-};
-
-// const mapDispatchToProps = (dispatch: Dispatch) => ({
-//   getAllProd: () => dispatch(getProductsReq()),
-//   getAllProdOk: (products: Product[]) => dispatch(getProductsOk(products)),
-// });
+const mapStateToProps = (state: AppState) => ({
+  products: state.products.products,
+  loaded: state.products.loaded,
+});
 
 export const ProductList = (props: ProductsState) => {
   const dispatch = useDispatch();
@@ -48,9 +43,11 @@ export const ProductList = (props: ProductsState) => {
     <>
       <h1 className={style.headingStyle}> Products </h1>
 
-      <Button className={style.buttonStyle}>
-        <AddIcon style={{ color: MyTheme.palette.primary.main }} />
-      </Button>
+      <Link to={"/add"}>
+        <Button className={style.buttonStyle}>
+          <AddIcon style={{ color: MyTheme.palette.primary.main }} />
+        </Button>
+      </Link>
       <Link to={"/cart"}>
         <Button className={style.buttonStyle}>
           <ShoppingCartIcon style={{ color: MyTheme.palette.primary.main }} />

@@ -44,10 +44,12 @@ export const ProductDetail = (props: any) => {
     <>
       <div>
         <h2 className={style.headingStyle}>Product: {data.name} </h2>
-        <Button className={style.buttonStyle}>
-          <EditIcon style={{ color: MyTheme.palette.primary.main }} />
-        </Button>
 
+        <Link to={"/update/" + data.id}>
+          <Button className={style.buttonStyle}>
+            <EditIcon style={{ color: MyTheme.palette.primary.main }} />
+          </Button>
+        </Link>
         <Link to={"/products"}>
           <Button
             className={style.buttonStyle}
@@ -60,14 +62,16 @@ export const ProductDetail = (props: any) => {
             />
           </Button>
         </Link>
-        <Button
-          className={style.buttonStyle}
-          onClick={() => {
-            deleteProductById(data.id);
-          }}
-        >
-          <DeleteIcon style={{ color: MyTheme.palette.primary.main }} />
-        </Button>
+        <Link to={"/products"}>
+          <Button
+            className={style.buttonStyle}
+            onClick={() => {
+              deleteProductById(data.id);
+            }}
+          >
+            <DeleteIcon style={{ color: MyTheme.palette.primary.main }} />
+          </Button>
+        </Link>
       </div>
       <div>
         <table className={style.tableStyle}>
