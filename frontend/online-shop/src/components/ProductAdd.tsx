@@ -45,6 +45,12 @@ export const ProductAdd = (props: any) => {
             (product.price = (event.target.value as unknown) as number)
           }
         ></input>
+        <br></br>
+        <label>Description</label>
+        <input
+          type="text"
+          onChange={(event) => (product.description = event.target.value)}
+        ></input>
       </form>
 
       <Link to={"/"}>

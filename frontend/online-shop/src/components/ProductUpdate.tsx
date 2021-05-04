@@ -40,28 +40,28 @@ export const ProductUpdate = (props: any) => {
         <label>Name</label>
         <input
           type="text"
-          value={data.name}
+          defaultValue={data.name}
           onChange={(event) => (product.name = event.target.value)}
         ></input>
         <br></br>
         <label>Category</label>
         <input
           type="text"
-          value={data.category}
+          defaultValue={data.category}
           onChange={(event) => (product.category = event.target.value)}
         ></input>
         <br></br>
         <label>Image</label>
         <input
           type="text"
-          value={data.image}
+          defaultValue={data.image}
           onChange={(event) => (product.image = event.target.value)}
         ></input>
         <br></br>
         <label>Price</label>
         <input
           type="text"
-          value={data.price}
+          defaultValue={data.price}
           onChange={(event) => (product.price = event.target.value)}
         ></input>
       </form>

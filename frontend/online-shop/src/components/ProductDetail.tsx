@@ -21,6 +21,7 @@ export const ProductDetail = (props: any) => {
     description: "",
     category: "",
     imgUrl: "",
+    image: "",
   });
 
   const { id } = useParams<{ id?: string | undefined }>();
@@ -90,6 +91,11 @@ export const ProductDetail = (props: any) => {
           <tr>
             <td>Description</td>
             <td>{data.description}</td>
+          </tr>
+          <tr>
+            <td>
+              <img src={data.image}></img>
+            </td>
           </tr>
         </table>
       </div>

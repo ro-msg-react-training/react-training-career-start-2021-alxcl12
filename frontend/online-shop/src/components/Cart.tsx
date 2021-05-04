@@ -6,6 +6,7 @@ import { Product } from "../interfaces/ProductInterface";
 import { AppState, store } from "../store/Store";
 import { createOrder } from "../service/ProductService";
 import { addToCartReq, addToCart } from "../actions/CartActions";
+import { Link } from "react-router-dom";
 
 interface CartProductsProps {
   products: Product[];
@@ -54,9 +55,11 @@ export const CartProducts = (props: CartProductsProps) => {
         </thead>
         <tbody>{items}</tbody>
       </table>
-      <Button className={style.tableStyle} onClick={handleCheckout}>
-        Checkout
-      </Button>
+      <Link to={"/"}>
+        <Button className={style.tableStyle} onClick={handleCheckout}>
+          Checkout
+        </Button>
+      </Link>
     </div>
   );
 };
